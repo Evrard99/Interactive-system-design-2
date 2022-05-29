@@ -1,9 +1,5 @@
 /// @ short description
-/// This code represents a so-called peak detection.
-/// No heartbeat history is recorded, but it
-/// a search is made for "peaks" within the recorded data,
-/// and indicated by LED. By means of the well-known delay intervals, you can
-/// the pulse can be roughly calculated.
+/// indication by LED. By means of the well-known delay intervals, you can determind the pulse.
 //////////////////////////////////////////////////// //////////////////////
   
 int rawValue;
