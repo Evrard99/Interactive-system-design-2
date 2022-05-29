@@ -1,6 +1,6 @@
-/// @ short description
-/// indication by LED. By means of the well-known delay intervals, you can determind the pulse.
-//////////////////////////////////////////////////// //////////////////////
+
+/// The LED indicate the pulse output. By means of the well-known delay intervals, you can determind the pulse.
+
   
 int rawValue;
   
@@ -17,9 +17,7 @@ bool heartbeatDetected (int IRSensorPin, int delay)
   // Here the current voltage value at the photo transistor is read out and stored temporarily in the rawValue variable
   rawValue * = (1000 / delay);
   
-  // Should the current value deviate too far from the last maximum value
-  // (e.g. because the finger was put on again or taken away)
-  // So the MaxValue is reset to get a new base.
+  
   if (rawValue * 4L <maxValue) {maxValue = rawValue * 0.8; } // Detect new peak
   if (rawValue> maxValue - (1000 / delay)) {
     // The actual peak is detected here. Should a new RawValue be bigger
@@ -46,9 +44,8 @@ bool heartbeatDetected (int IRSensorPin, int delay)
 }
   
   
-//////////////////////////////////////////////////// //////////////////////
-// Arduino main code
-//////////////////////////////////////////////////// //////////////////////
+// main code
+
 int ledPin = 13;
 int analogPin = 0;
   
@@ -64,9 +61,9 @@ void setup ()
   
 const int delayMsec = 60; // 100msec per sample
   
-// The main program has two tasks:
+
 // - If a heartbeat is recognized, the LED flashes briefly
-// - The pulse is calculated and output on the serial output.
+
   
 void loop ()
 {
